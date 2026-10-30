@@ -1,0 +1,15 @@
+BasedOnStyle: Google
+IndentExportBlock: false
+# Keep the shared platform boundary first in global module fragments.
+IncludeCategories:
+  - Regex: '^"platform/platform\.h"$'
+    Priority: -1
+  # PHNT's declarations require its Windows compatibility header first.
+  - Regex: '^<external/phnt/phnt_windows\.h>$'
+    Priority: 0
+  - Regex: '^<.*\.h>'
+    Priority: 1
+  - Regex: '^<.*'
+    Priority: 2
+  - Regex: '.*'
+    Priority: 3
